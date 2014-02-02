@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>sass2scss | Convert sass to scss</title>
-    <link rel="stylesheet" href="./demo/assets/normalize.css">
+    <title>sass2scss demo</title>
+    <link rel="stylesheet" href="./demo/assets/normalize.css" />
+    <link rel="stylesheet" href="./demo/assets/main.css" />
+    <style>
+      /* begin demo embedded styles */
+
+      /* end demo embedded styles */
+    </style>
   </head>
   <body>
-    <h1>sass2scss</h1>
-    <p>Convert sass to scss</p>
-    <p>Check out the <a href="http://ArnaudRinquin.github.io/sass2scss/demo/index.html">project homepage</a>.</p>
-    <p>Check out the <a href="https://github.com/ArnaudRinquin/sass2scss">source code on GitHub</a>.</p>
+    <h1>sass2scss demo</h1>
+
+    <!-- begin demo markup -->
+    <textarea name="" id="sass" cols="30" rows="10">.bar
+  $bar: 4
+  color: blue
+  background: url(/image/#{$bar}.png)
+
+=red
+  color: red
+
+input
+  +red
+  border: 1px solid red</textarea>
+    <button id="convert">Convert to scss</button>
+    <textarea name="" id="scss" cols="30" rows="10"></textarea>
+    <!-- end demo markup -->
+
+    <p>See the <a href="http://ArnaudRinquin.github.io/sass2scss">project homepage</a>.
+    <p>Check out the <a href="https://github.com/ArnaudRinquin/sass2scss">project repo</a>.</p>
+
     <p>Copyright 2014 Arnaud Rinquin</p>
+
+    <script src="./dist/sass2scss.min.js"></script>
+
+    <script>
+      var convertBtn = document.getElementById('convert');
+      var sassContainer = document.getElementById('sass');
+      var scssContainer = document.getElementById('scss');
+
+      convertBtn.addEventListener('click', function(){
+        sassText = sassContainer.value;
+        console.log(sassText);
+        convertedSass = sass2scss(sassText);
+        scssContainer.value = convertedSass;
+      }, false);
+    </script>
   </body>
 </html>
