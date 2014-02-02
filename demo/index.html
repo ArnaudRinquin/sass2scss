@@ -18,18 +18,36 @@
     <!-- end demo markup -->
 
     <p>See the <a href="http://ArnaudRinquin.github.io/sass2scss">project homepage</a>.
-    <p>Check out the <a href="https://github.com/ArnaudRinquin/sass2scss">project repo</a>.
+    <p>Check out the <a href="https://github.com/ArnaudRinquin/sass2scss">project repo</a>.</p>
+    <textarea name="" id="sass" cols="30" rows="10">.bar
+  $bar: 4
+  color: blue
+  background: url(/image/#{$bar}.png)
+
+=red
+  color: red
+
+input
+  +red
+  border: 1px solid red</textarea>
+    <button id="convert">Convert to scss</button>
+    <textarea name="" id="scss" cols="30" rows="10"></textarea>
+
     <p>Copyright 2014 Arnaud Rinquin</p>
 
-    <script src="./../dist/sass2scss.js"></script>
+    <script src="./../dist/sass2scss.min.js"></script>
 
     <script>
-      /* begin demo script */
+      var convertBtn = document.getElementById('convert');
+      var sassContainer = document.getElementById('sass');
+      var scssContainer = document.getElementById('scss');
 
-      var n = sass2scss();
-      console.log(n);
-
-      /* end demo script */
+      convertBtn.addEventListener('click', function(){
+        sassText = sassContainer.value;
+        console.log(sassText);
+        convertedSass = sass2scss(sassText);
+        scssContainer.value = convertedSass;
+      }, false);
     </script>
   </body>
 </html>

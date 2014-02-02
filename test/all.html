@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <title>QUnit Example</title>
   <link rel="stylesheet" href="lib/qunit.css">
+  <style>
+    pre {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div id="qunit"></div>
@@ -11,5 +16,60 @@
   <script src="./lib/qunit.js"></script>
   <script src="../dist/sass2scss.js"></script>
   <script src="./all.js"></script>
+  <div class="basic">
+    <pre name="" class="expected" cols="30" rows="10">body{
+  color: blue;}</pre>
+    <pre name="" class="fixture" cols="30" rows="10">body
+  color: blue</pre>
+  </div>
+
+  <div class="sass-aliases">
+    <pre name="" class="expected" cols="30" rows="10">@mixin lol{
+  color: blue;}
+input{
+  @include lol;
+  background: red;}</pre>
+    <pre name="" class="fixture" cols="30" rows="10">=lol
+  color: blue
+
+input
+  +lol
+  background: red</pre>
+  </div>
+
+  <div class="block-last-line-comment">
+    <pre name="" class="expected" cols="30" rows="10">.foo{
+  color: blue;}
+.bar{
+  $bar: 4;
+  color: blue;
+  background: url(/image/#{$bar}.png);}</pre>
+    <pre name="" class="fixture" cols="30" rows="10">.foo
+  // foobar
+  color: blue
+  // foobar
+
+//foo
+
+.bar
+  $bar: 4
+  color: blue
+  background: url(/image/#{$bar}.png)</pre>
+  </div>
+
+  <div class="no-char-selector">
+    <pre name="" class="expected" cols="30" rows="10">.bar{
+  color: blue;
+  > *{
+    color: red;}
+  *{
+    color: orange;}}</pre>
+    <pre name="" class="fixture" cols="30" rows="10">.bar
+  color: blue
+  > *
+    color: red
+  *
+    color: orange</pre>
+  </div>
 </body>
 </html>

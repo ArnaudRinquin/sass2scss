@@ -20,7 +20,7 @@ Or grab the [source](https://github.com/ArnaudRinquin/sass2scss/dist/sass2scss.j
 
 Basic usage is as follows:
 
-    sass2scss();
+    scssOutput = sass2scss(sassInput);
 
 For advanced usage, see the documentation.
 
