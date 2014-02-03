@@ -14,7 +14,7 @@ Using Bower:
 
     bower install sass2scss
 
-Or grab the [source](https://github.com/ArnaudRinquin/sass2scss/dist/sass2scss.js) ([minified](https://github.com/ArnaudRinquin/sass2scss/dist/sass2scss.min.js)).
+Or grab the [source](https://raw.github.com/ArnaudRinquin/sass2scss/master/dist/sass2scss.js) ([minified](https://raw.github.com/ArnaudRinquin/sass2scss/master/dist/sass2scss.min.js)).
 
 ## Usage
 
